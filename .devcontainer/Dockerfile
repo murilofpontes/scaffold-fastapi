@@ -24,6 +24,7 @@ ENV PYENV_ROOT=/home/vscode/.pyenv
 ENV PATH="$PYENV_ROOT/bin:$PATH"
 
 RUN curl -L https://pyenv.run | bash
+RUN pyenv install 3.12:latest 
 
 # shell pyenv initialization
 RUN echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc && \
