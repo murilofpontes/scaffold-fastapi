@@ -1,0 +1,49 @@
+{ 
+    "name": "Python 3.13 clean Scaffold",
+    "dockerFile": "Dockerfile",
+    "customizations": {
+        "vscode":{
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.pyLintEnabled": true,
+                "python.linting.enabled": true,
+                "python.formatting.provider": "charliesmarsh.ruff",
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.fixAll": "explicit",
+                    "source.organizeImports": "explicit"
+                },
+                "ruff.lint.args": ["--config=${workspaceFolder}/.ruff.toml"],
+                "ruff.format.args": ["--config=${workspaceFolder}/.ruff.toml"],
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.python"
+                },
+                "editor.tabSize": 4,
+                "files.eol": "\n"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-azuretools.vscode-docker",
+                "esbenp.prettier-vscode",
+                "ms-vscode-remote.remote-containers",
+                "ms-vscode-remote.remote-ssh",
+                "ms-vscode-remote.remote-ssh-edit",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "streetsidesoftware.code-spell-checker",
+                "charLiermash.ruff",
+                "eamodio.gitlens",
+                "editorconfig.editorconfig"
+            ]
+        },
+        "postCreateCommand": { 
+            "install dependencies": {
+                "description": "Install Python dependencies",
+                "command": "poetry env use python 3.13 && poetry install --no-root"
+            }
+        },
+        "remoteUser": "vscode",
+        "workspaceFolder": "/workspace"
+    }
+}
